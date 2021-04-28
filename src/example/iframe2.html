@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iframe2</title>
+  </head>
+  <body>
+    <label>iframe2</label>
+    <input id="input" />
+    <button id="send">send</button>
+    <hr />
+    <div>message: <em id="message"></em></div>
+    <script>
+      window.addEventListener("load", () => {
+        const message = document.querySelector("#message");
+        const input = document.querySelector("#input");
+        const send = document.querySelector("#send");
+
+        iframev.on("container:message", (msg) => {
+          if (msg) message.innerText = "container:" + msg;
+        });
+
+        iframev.on("iframe1:message", (msg) => {
+          if (msg) message.innerText = "iframe1:" + msg;
+        });
+
+        send.addEventListener("click", () => {
+          if (input.value) {
+            iframev.emit("iframe2:message", input.value);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

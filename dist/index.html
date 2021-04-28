@@ -1,0 +1,16 @@
+<!doctype html><html><head><title>iframev</title><style>.container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100vh;
+      }
+
+      iframe {
+        border: 1px solid;
+      }</style><script defer="defer" src="./iframev.min.js"></script></head><body><div class="container"><div><label>container</label> <input id="input"/> <button id="send">send</button></div><iframe src="./iframe1.html"></iframe><iframe src="./iframe2.html"></iframe></div><script>const input = document.querySelector("#input");
+      const send = document.querySelector("#send");
+
+      send.addEventListener("click", () => {
+        if (input.value) iframev.emit("container:message", input.value);
+      });</script></body></html>
