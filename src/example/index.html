@@ -1,41 +1,32 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>iframev</title>
-    <style>
-      .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        height: 100vh;
-      }
-
-      iframe {
-        border: 1px solid;
-      }
-    </style>
-  </head>
   <body>
-    <div class="container">
+    <div class="top">
       <div>
-        <label>container</label>
-        <input id="input" />
-        <button id="send">send</button>
+        <button>top</button>
+        <a href="#">cancel top listening</a>
+        <h1></h1>
       </div>
-
       <iframe src="./iframe1.html"></iframe>
-
       <iframe src="./iframe2.html"></iframe>
     </div>
-
     <script>
-      const input = document.querySelector("#input");
-      const send = document.querySelector("#send");
+      window.onload = () => {
+        const qs = (selector) => document.querySelector(selector);
 
-      send.addEventListener("click", () => {
-        if (input.value) iframev.emit("container:message", input.value);
-      });
+        const showPayload = (payload = "") => {
+          qs("h1").innerText = payload;
+        };
+
+        framev.on("*:message", showPayload);
+
+        qs("a").onclick = () => {
+          framev.off("*:message", showPayload);
+        };
+
+        qs("button").onclick = () => {
+          framev.emit("top:message", "top");
+        };
+      };
     </script>
   </body>
 </html>

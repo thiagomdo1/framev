@@ -9,26 +9,24 @@ function config(mode) {
     stats: "errors-only",
     mode,
 
-    entry: "./index.js",
+    entry: "./index.ts",
 
     output: {
-      filename: "iframev.min.js",
+      filename: "framev.js",
       path: path.resolve(__dirname, "dist"),
     },
 
     module: {
       rules: [
         {
-          test: /\.js$/,
-          use: {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env"],
-            },
-          },
+          test: /\.ts?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
         },
       ],
     },
+
+    resolve: { extensions: [".ts"] },
 
     plugins: [
       new CleanWebpackPlugin(),

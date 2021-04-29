@@ -1,34 +1,23 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>iframe1</title>
-  </head>
   <body>
-    <label>iframe1</label>
-    <input id="input" />
-    <button id="send">send</button>
-    <hr />
-    <div>message: <em id="message"></em></div>
+    <button>1</button>
+    <h1></h1>
     <script>
-      window.addEventListener("load", () => {
-        const message = document.querySelector("#message");
-        const input = document.querySelector("#input");
-        const send = document.querySelector("#send");
+      window.onload = () => {
+        const qs = (selector) => document.querySelector(selector);
 
-        iframev.on("container:message", (msg) => {
-          if (msg) message.innerText = "container:" + msg;
-        });
+        const showPayload = (payload = "") => {
+          qs("h1").innerText = payload;
+        };
 
-        iframev.on("iframe2:message", (msg) => {
-          if (msg) message.innerText = "iframe2:" + msg;
-        });
+        framev.on("top:message", showPayload);
 
-        send.addEventListener("click", () => {
-          if (input.value) {
-            iframev.emit("iframe1:message", input.value);
-          }
-        });
-      });
+        framev.on("iframe2:message", showPayload);
+
+        qs("button").onclick = (e) => {
+          framev.emit("iframe1:message", 1);
+        };
+      };
     </script>
   </body>
 </html>
