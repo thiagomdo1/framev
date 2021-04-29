@@ -1,7 +1,7 @@
 {
-  "name": "iframev",
-  "version": "1.0.0",
-  "description": "Easily send message across iframes",
+  "name": "framev",
+  "version": "1.0.1",
+  "description": "Easily send messages across iframes",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "start": "webpack --mode=development && webpack -w --mode=development"
   },
   "author": "thiagomdo1@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "html-webpack-plugin": "^5.3.1",
