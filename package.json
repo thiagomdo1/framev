@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Easily send message across iframes",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thiagomdo1/framev.git"
+  },
   "scripts": {
     "build": "webpack --mode=production",
     "start": "webpack --mode=development && webpack -w --mode=development"
