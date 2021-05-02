@@ -54,6 +54,7 @@ var Framev = /** @class */ (function () {
         window.addEventListener("message", handleMessage);
     }
     Framev.prototype.emit = function (event, payload) {
+        var _this = this;
         if (!event || typeof event !== "string")
             return null;
         var msgData = {
@@ -67,7 +68,7 @@ var Framev = /** @class */ (function () {
             if (!window.top) {
                 return null;
             }
-            window.top.postMessage(msgString, window.location.origin);
+            window.top.postMessage(msgString, _this.settings.origin);
         };
         var emitToFrames = function () {
             if (!window.frames) {
@@ -79,7 +80,7 @@ var Framev = /** @class */ (function () {
                 if (!iWindow) {
                     return null;
                 }
-                iWindow.postMessage(msgString, window.location.origin);
+                iWindow.postMessage(msgString, _this.settings.origin);
             }
         };
         if (window.self === window.top) {

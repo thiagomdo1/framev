@@ -84,7 +84,7 @@ class Framev {
       if (!window.top) {
         return null;
       }
-      window.top.postMessage(msgString, window.location.origin);
+      window.top.postMessage(msgString, this.settings.origin);
     };
 
     const emitToFrames = (): void => {
@@ -100,7 +100,7 @@ class Framev {
           return null;
         }
 
-        iWindow.postMessage(msgString, window.location.origin);
+        iWindow.postMessage(msgString, this.settings.origin);
       }
     };
 
