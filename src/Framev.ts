@@ -1,11 +1,20 @@
+interface Settings {
+  origin: string;
+}
+
 class Framev {
   private readonly prefix: string = "framev:";
+  private settings: Settings = { origin: "*" };
   private subscriptions: Array<{
     event: string;
     callback?: Function;
   }> = [];
 
-  constructor() {
+  constructor(settings?: Settings) {
+    if (settings) {
+      this.settings = { ...this.settings, ...settings };
+    }
+
     const handleMessage = ({
       data,
       origin,
@@ -13,10 +22,9 @@ class Framev {
       data: string;
       origin: string;
     }): void => {
-      console.log(data);
       const prefixRegex = new RegExp(this.prefix, "i");
 
-      if (origin !== window.location.origin) {
+      if (this.settings.origin !== "*" && this.settings.origin !== origin) {
         return null;
       }
 
@@ -126,4 +134,4 @@ class Framev {
   }
 }
 
-export default Framev;
+export { Framev, Settings };

@@ -1,13 +1,13 @@
-import Framev from "./src/Framev";
+import { Framev } from "./src/Framev";
 
 declare global {
   interface Window {
-    framev?: Framev;
+    Framev?: any;
   }
 }
 
-if (!window.framev) {
-  window.framev = new Framev();
+if (!window.Framev) {
+  window.Framev = Framev;
 }
 
 export default Framev;
