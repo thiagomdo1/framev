@@ -38,9 +38,7 @@ class Framev {
 
       const { event, payload } = JSON.parse(data.replace(this.prefix, ""));
 
-      if (window.self === window.top) {
-        this.emit(event, payload);
-      }
+      this.emit(event, payload, true);
 
       this.subscriptions.forEach((subscription) => {
         if (typeof subscription.callback !== "function") return null;
@@ -64,7 +62,7 @@ class Framev {
     window.addEventListener("message", handleMessage);
   }
 
-  emit(event: string, payload?: any): void {
+  emit(event: string, payload?: any, onlyChildren?: boolean): void {
     if (!event || typeof event !== "string") return null;
 
     const msgData: {
@@ -104,7 +102,7 @@ class Framev {
       }
     };
 
-    if (window.self === window.top) {
+    if (window.self === window.top || onlyChildren) {
       emitToFrames();
     } else {
       emitToTop();

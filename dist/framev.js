@@ -33,9 +33,7 @@ var Framev = /** @class */ (function () {
                 return null;
             }
             var _b = JSON.parse(data.replace(_this.prefix, "")), event = _b.event, payload = _b.payload;
-            if (window.self === window.top) {
-                _this.emit(event, payload);
-            }
+            _this.emit(event, payload, true);
             _this.subscriptions.forEach(function (subscription) {
                 if (typeof subscription.callback !== "function")
                     return null;
@@ -53,7 +51,7 @@ var Framev = /** @class */ (function () {
         };
         window.addEventListener("message", handleMessage);
     }
-    Framev.prototype.emit = function (event, payload) {
+    Framev.prototype.emit = function (event, payload, onlyChildren) {
         var _this = this;
         if (!event || typeof event !== "string")
             return null;
@@ -83,7 +81,7 @@ var Framev = /** @class */ (function () {
                 iWindow.postMessage(msgString, _this.settings.origin);
             }
         };
-        if (window.self === window.top) {
+        if (window.self === window.top || onlyChildren) {
             emitToFrames();
         }
         else {
