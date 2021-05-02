@@ -38,7 +38,7 @@ class Framev {
 
       const { event, payload } = JSON.parse(data.replace(this.prefix, ""));
 
-      console.log(document.querySelector("button").innerText, event);
+      console.log("emitting event:", event);
 
       this.emit(event, payload, true);
 
