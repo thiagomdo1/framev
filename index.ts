@@ -1,4 +1,4 @@
-import { Framev, Settings } from "./src/Framev";
+import { Framev, Settings } from "./src/framev";
 
 declare global {
   interface Window {

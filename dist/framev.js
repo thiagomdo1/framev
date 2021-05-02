@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,6 +10,8 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+exports.__esModule = true;
+exports.Framev = void 0;
 var Framev = /** @class */ (function () {
     function Framev(settings) {
         var _this = this;
@@ -54,7 +57,7 @@ var Framev = /** @class */ (function () {
         if (!event || typeof event !== "string")
             return null;
         var msgData = {
-            event: "" + this.prefix + event,
+            event: "" + this.prefix + event
         };
         if (payload) {
             msgData.payload = payload;
@@ -106,4 +109,4 @@ var Framev = /** @class */ (function () {
     };
     return Framev;
 }());
-export { Framev };
+exports.Framev = Framev;

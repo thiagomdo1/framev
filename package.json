@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "webpack --mode=production && tsc",
+    "build": "webpack --mode=production && tsc ./src/framev.ts --outDir ./dist",
     "start": "webpack --mode=development && webpack -w --mode=development"
   },
   "dependencies": {},
