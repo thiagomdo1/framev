@@ -6,8 +6,6 @@ declare global {
   }
 }
 
-if (!window.Framev) {
-  window.Framev = Framev;
-}
+window.Framev || (window.Framev = Framev);
 
 export { Framev, Settings };
