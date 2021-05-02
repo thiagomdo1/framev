@@ -1,4 +1,7 @@
-<html><head><script defer="defer" src="./framev.js"></script></head><body><div class="top"><h3>Framev example</h3><div><button>top</button><br><a href="#">remove this listener</a><h1></h1></div><iframe src="./iframe1.html"></iframe><iframe src="./iframe2.html"></iframe></div><script>window.onload = () => {
+<html><head><style>iframe {
+        width: 40%;
+        height: 40%;
+      }</style><script defer="defer" src="./framev.js"></script></head><body><div class="top"><h3>Framev example</h3><div><button>top</button><br/><a href="#">remove this listener</a><h1></h1></div><iframe src="./iframe1.html"></iframe><iframe src="./iframe2.html"></iframe></div><script>window.onload = () => {
         const framev = new Framev();
         const qs = (selector) => document.querySelector(selector);
 

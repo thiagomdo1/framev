@@ -33,6 +33,7 @@ var Framev = /** @class */ (function () {
                 return null;
             }
             var _b = JSON.parse(data.replace(_this.prefix, "")), event = _b.event, payload = _b.payload;
+            console.log(document.querySelector("button").innerText, event);
             _this.emit(event, payload, true);
             _this.subscriptions.forEach(function (subscription) {
                 if (typeof subscription.callback !== "function")

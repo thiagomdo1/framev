@@ -45,6 +45,11 @@ function config(mode) {
         template: "./src/example/iframe2.html",
         publicPath: "./",
       }),
+      new HtmlWebpackPlugin({
+        filename: "iframe3.html",
+        template: "./src/example/iframe3.html",
+        publicPath: "./",
+      }),
     ],
   };
 }

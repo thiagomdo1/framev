@@ -1,8 +1,7 @@
 <html>
   <body>
-    <button>1</button>
+    <button>3</button>
     <h1></h1>
-    <iframe src="./iframe3.html"></iframe>
     <script>
       window.onload = () => {
         const framev = new Framev();
@@ -14,10 +13,10 @@
 
         framev.on("top:message", showPayload);
 
-        framev.on("iframe2:message", showPayload);
+        framev.on("iframe1:message", showPayload);
 
-        qs("button").onclick = (e) => {
-          framev.emit("iframe1:message", 1);
+        qs("button").onclick = () => {
+          framev.emit("iframe3:message", 3);
         };
       };
     </script>

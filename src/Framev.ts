@@ -38,6 +38,8 @@ class Framev {
 
       const { event, payload } = JSON.parse(data.replace(this.prefix, ""));
 
+      console.log(document.querySelector("button").innerText, event);
+
       this.emit(event, payload, true);
 
       this.subscriptions.forEach((subscription) => {
