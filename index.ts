@@ -1,4 +1,4 @@
-import { Framev } from "./src/Framev";
+import { Framev, Settings } from "./src/Framev";
 
 declare global {
   interface Window {
@@ -10,4 +10,4 @@ if (!window.Framev) {
   window.Framev = Framev;
 }
 
-export default Framev;
+export { Framev, Settings };
