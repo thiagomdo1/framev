@@ -9,11 +9,11 @@ function config(mode) {
     stats: "errors-only",
     mode,
 
-    entry: "./index.ts",
+    entry: { framev: "./index.ts" },
 
     output: {
-      filename: "framev.js",
-      path: path.resolve(__dirname, "dist"),
+      filename: "[name].js",
+      path: path.resolve(__dirname, "dist/browser"),
     },
 
     module: {
