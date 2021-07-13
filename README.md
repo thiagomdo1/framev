@@ -24,8 +24,6 @@ Or add it via script tag:
 <script src="framev.js" />
 ```
 
-Events can be created with the Framev constructor as follows:
-
 Emitting an event:
 
 ```ts
