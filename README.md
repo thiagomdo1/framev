@@ -1,4 +1,4 @@
-# framev
+# Framev
 
 ## Send and receive data across iframes.
 
@@ -12,7 +12,7 @@ npm i framev
 
 ## Usage
 
-Import framev:
+Import Framev:
 
 ```ts
 import { Framev } from "framev";
