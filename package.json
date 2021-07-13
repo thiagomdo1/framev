@@ -2,6 +2,10 @@
   "name": "framev",
   "version": "1.3.10",
   "description": "Send and receive data across iframes",
+  "keywords": [
+    "event",
+    "iframe"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/thiagomdo1/framev.git"
