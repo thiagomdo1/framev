@@ -21,17 +21,17 @@ import { Framev } from "framev";
 Or add it via script tag:
 
 ```html
-<script src="framev.js" />
+<script src="framev.js"></script>
 ```
 
 Emitting an event:
 
 ```ts
 const framev = new Framev();
-framev.emit("helloworld", "Hello world"); 
+framev.emit("helloworld", "Hello world");
 
 // sending objects
-framev.emit("helloworld2", {message: "Hello world"});
+framev.emit("helloworld2", { message: "Hello world" });
 ```
 
 Receiving an event:
