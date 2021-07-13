@@ -20,7 +20,7 @@ import { Framev } from "framev";
 
 Or add it via script tag:
 
-```ts
+```html
 <script src="framev.js" />
 ```
 
